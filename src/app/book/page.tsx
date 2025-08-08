@@ -17,7 +17,7 @@ export default function BookPage() {
             Book a Call
           </h1>
           <p className="text-xl text-neutral-700 mb-12 max-w-2xl mx-auto">
-            Let's discuss if theme page marketing is right for your business. 
+            Let&apos;s discuss if theme page marketing is right for your business. 
             No sales pressure—just an honest assessment.
           </p>
           
@@ -45,7 +45,7 @@ export default function BookPage() {
           <div className="mt-12 text-sm text-neutral-600">
             <p>Call duration: 30 minutes</p>
             <p>No preparation required</p>
-            <p>We'll assess fit and discuss next steps</p>
+            <p>We&apos;ll assess fit and discuss next steps</p>
           </div>
         </motion.div>
       </Container>

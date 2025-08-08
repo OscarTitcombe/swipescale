@@ -54,7 +54,7 @@ export default function Contact() {
             Ready to get started?
           </h2>
           <p className="text-xl text-neutral-700 max-w-2xl mx-auto">
-            Let's discuss how theme page marketing can work for your business.
+            Let&apos;s discuss how theme page marketing can work for your business.
           </p>
         </motion.div>
 
@@ -78,7 +78,7 @@ export default function Contact() {
                     Message sent!
                   </h4>
                   <p className="text-neutral-600">
-                    We'll get back to you within 24 hours.
+                    We&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
               ) : (
@@ -159,7 +159,7 @@ export default function Contact() {
                   Other ways to reach us
                 </h3>
                 <p className="text-neutral-700 mb-6">
-                  Prefer to talk directly? We're here to help you understand if theme page marketing is right for your business.
+                  Prefer to talk directly? We&apos;re here to help you understand if theme page marketing is right for your business.
                 </p>
               </div>
               

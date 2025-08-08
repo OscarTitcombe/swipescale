@@ -42,7 +42,7 @@ export default function Benefits() {
             Why SwipeScale?
           </h2>
           <p className="text-xl text-neutral-700 max-w-2xl mx-auto">
-            We've simplified theme page marketing to its core: targeted reach, transparent pricing, and hands-off execution.
+            We&apos;ve simplified theme page marketing to its core: targeted reach, transparent pricing, and hands-off execution.
           </p>
         </motion.div>
 
