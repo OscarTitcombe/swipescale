@@ -27,7 +27,7 @@ export default function TermsPage() {
             
             <h2>Service Delivery</h2>
             <p>
-              We deliver 6 managed theme pages with approximately 180 posts per month. 
+              We deliver managed theme pages with approximately 180 posts per month (example based on typical setup). 
               Weekly reach reports and monthly CPM reconciliation are provided.
             </p>
             

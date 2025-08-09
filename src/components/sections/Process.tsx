@@ -12,7 +12,7 @@ const steps = [
   },
   {
     title: 'Setup',
-    description: 'We create and optimize 6 theme pages across relevant platforms.',
+    description: 'We create and optimize your theme pages across relevant platforms.',
     icon: '⚙️'
   },
   {

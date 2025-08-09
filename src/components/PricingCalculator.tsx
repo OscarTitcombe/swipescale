@@ -15,7 +15,9 @@ interface PricingCalculatorProps {
     cpm: number; 
     retainer: number; 
     bonus: number; 
-    total: number 
+    total: number;
+    igAddOn: boolean;
+    igAddOnCost: number;
   }) => void
 }
 
@@ -28,6 +30,7 @@ export default function PricingCalculator({
   const [pages, setPages] = useState(defaultPages)
   const [reach, setReach] = useState(defaultReach)
   const [cpm, setCpm] = useState(defaultCPM)
+  const [igAddOn, setIgAddOn] = useState<boolean>(false)
   const [debouncedPages, setDebouncedPages] = useState(defaultPages)
   const [debouncedReach, setDebouncedReach] = useState(defaultReach)
   const [debouncedCpm, setDebouncedCpm] = useState(defaultCPM)
@@ -51,7 +54,8 @@ export default function PricingCalculator({
   // Calculate values
   const retainer = 1000 + Math.max(0, debouncedPages - 1) * 400
   const estBonus = (debouncedReach / 1000) * debouncedCpm
-  const total = retainer + estBonus
+  const igAddOnCost = igAddOn ? debouncedPages * 100 : 0
+  const total = retainer + estBonus + igAddOnCost
   const contentPerMonth = debouncedPages * 30
 
   // Notify parent of changes
@@ -62,9 +66,11 @@ export default function PricingCalculator({
       cpm: debouncedCpm,
       retainer,
       bonus: estBonus,
-      total
+      total,
+      igAddOn,
+      igAddOnCost
     })
-  }, [debouncedPages, debouncedReach, debouncedCpm, retainer, estBonus, total, onChange])
+  }, [debouncedPages, debouncedReach, debouncedCpm, retainer, estBonus, total, igAddOn, igAddOnCost, onChange])
 
   // helpers
   const toMillionsLabel = (n: number) => `${Math.round(n / 1_000_000)}M`;
@@ -171,6 +177,31 @@ export default function PricingCalculator({
               />
             </div>
           </div>
+
+          {/* Instagram Add-on */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <label className="block text-sm font-medium text-neutral-300">
+                Post to Instagram as well
+              </label>
+              <button
+                type="button"
+                onClick={() => setIgAddOn(!igAddOn)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-neutral-900 ${
+                  igAddOn ? 'bg-accent' : 'bg-neutral-600'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    igAddOn ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+            </div>
+            <p className="text-xs text-neutral-400">
+              +$100 per page for Instagram cross-posting
+            </p>
+          </div>
         </div>
 
         {/* Summary */}
@@ -200,6 +231,16 @@ export default function PricingCalculator({
                 className="text-lg font-semibold text-accent"
               />
             </div>
+
+            {igAddOn && (
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-300">IG Cross-post Add-on:</span>
+                <Odometer 
+                  value={igAddOnCost} 
+                  className="text-lg font-semibold text-white"
+                />
+              </div>
+            )}
             
             <div className="border-t border-neutral-600 pt-4">
               <div className="flex justify-between items-center">

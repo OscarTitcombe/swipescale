@@ -7,7 +7,7 @@ import FAQAccordion from '../ui/FAQAccordion'
 const faqItems = [
   {
     question: 'Why CPM vs affiliate/lead?',
-    answer: 'CPM is transparent and predictable. You pay for reach, not promises. No attribution headaches, no complex tracking—just clear metrics on how many people see your content.'
+    answer: 'CPM is transparent and predictable. You pay for reach, not promises. No attribution headaches, no complex tracking—just clear metrics on how many people see your content. Typical TikTok ads cost $3.20–$10 CPM, while SwipeScale delivers comparable reach at just $0.15–$0.30 CPM plus a flat retainer — making it 20×–30× cheaper without sacrificing audience quality.'
   },
   {
     question: 'What counts as reach?',
@@ -15,7 +15,7 @@ const faqItems = [
   },
   {
     question: 'Which platforms?',
-    answer: 'We focus on Instagram and TikTok primarily, with some presence on Twitter/X. We choose platforms based on where your target audience is most active.'
+    answer: 'We are primarily TikTok-focused, optimising all content for maximum performance on that platform. TikTok delivers the best reach and CPM for our campaigns. Optionally, we can also post the same content to Instagram theme pages to expand reach further.'
   },
   {
     question: 'Content sources?',
@@ -26,7 +26,7 @@ const faqItems = [
     answer: 'You\'ll see initial reach within 2-4 weeks. Full momentum typically builds over 60-90 days as we optimize content and grow the pages.'
   },
   {
-    question: 'Can we scale beyond 6 pages?',
+    question: 'Can we scale beyond the initial page count?',
     answer: 'Yes, we can scale to additional pages or increase posting frequency. Pricing adjusts proportionally based on reach and content volume.'
   }
 ]

@@ -5,8 +5,8 @@ import Container from '../ui/Container'
 import Card from '../ui/Card'
 
 const offerItems = [
-  '6 managed theme pages',
-  '1 post per page per day (≈180 posts/month)',
+  'Managed theme pages (you choose the count)',
+  '1 post per page per day (example: ~180 posts/month)',
   'Growth playbook: collabs, hooks, DM CTAs',
   'Weekly reach report; end-of-month CPM reconciliation',
   'No meetings required (optional monthly review)'
@@ -72,11 +72,11 @@ export default function Offer() {
                 <div className="space-y-3 text-left">
                   <div className="flex justify-between">
                     <span>Theme Pages</span>
-                    <span className="font-semibold">6</span>
+                    <span className="font-semibold">1–20 (you choose)</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Posts per Month</span>
-                    <span className="font-semibold">~180</span>
+                    <span className="font-semibold">30 per page (example: 6 pages = ~180 posts)</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Weekly Reports</span>

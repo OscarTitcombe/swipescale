@@ -71,23 +71,24 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="grid grid-cols-2 gap-4">
-              <StatCard
-                title="Impressions"
-                value="2.4M"
-                delta="+12% vs last month"
-                className="col-span-2"
-              />
-              <StatCard
-                title="CPM"
-                value="$0.18"
-                delta="-8% vs last month"
-              />
-              <StatCard
-                title="CTR"
-                value="3.2%"
-                delta="+5% vs last month"
-              />
+            {/* Analytics Dashboard */}
+            <div className="relative">
+              <div className="text-sm text-neutral-400 mb-3">July</div>
+              <div className="grid grid-cols-2 gap-4">
+                <StatCard
+                  title="Total Views"
+                  value="12.6M"
+                  className="col-span-2"
+                />
+                <StatCard
+                  title="Niche"
+                  value="Perfume / Beauty"
+                />
+                <StatCard
+                  title="Content Posted"
+                  value="178"
+                />
+              </div>
             </div>
             
             {/* Decorative elements */}
