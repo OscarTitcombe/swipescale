@@ -2,9 +2,11 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { track } from '@vercel/analytics'
 import Container from '../ui/Container'
 import Button from '../ui/Button'
 import Card from '../ui/Card'
+import Section from '../ui/Section'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,6 +22,11 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     
+    // Track form submission
+    track('contact_form_submitted', {
+      source: 'contact_section'
+    })
+    
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -32,9 +39,13 @@ export default function Contact() {
       if (response.ok) {
         setShowSuccess(true)
         setFormData({ name: '', email: '', company: '', reachGoal: '' })
+        track('contact_form_success')
+      } else {
+        track('contact_form_error', { status: response.status })
       }
     } catch (error) {
       console.error('Error submitting form:', error)
+      track('contact_form_error', { error: 'network_error' })
     } finally {
       setIsSubmitting(false)
     }

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { track } from '@vercel/analytics'
 import Container from '../ui/Container'
 import Button from '../ui/Button'
 import StatCard from '../ui/StatCard'
@@ -50,7 +51,11 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/book" size="lg">
+              <Button 
+                href="/book" 
+                size="lg"
+                onClick={() => track('hero_book_call_clicked')}
+              >
                 Book a Call
               </Button>
               <Button 
@@ -58,6 +63,7 @@ export default function Hero() {
                 variant="ghost" 
                 size="lg"
                 className="text-white border-white/20 hover:bg-white/10"
+                onClick={() => track('hero_email_clicked')}
               >
                 Email Us
               </Button>

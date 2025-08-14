@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
+import { track } from '@vercel/analytics'
 import Odometer from './ui/Odometer'
 import Slider from './ui/Slider'
 
@@ -31,6 +32,27 @@ export default function PricingCalculator({
   const [reach, setReach] = useState(defaultReach)
   const [cpm, setCpm] = useState(defaultCPM)
   const [igAddOn, setIgAddOn] = useState<boolean>(false)
+
+  // Track slider interactions
+  const handlePagesChange = (value: number) => {
+    setPages(value)
+    track('pricing_calculator_pages_changed', { pages: value })
+  }
+
+  const handleReachChange = (value: number) => {
+    setReach(value)
+    track('pricing_calculator_reach_changed', { reach: value })
+  }
+
+  const handleCpmChange = (value: number) => {
+    setCpm(value)
+    track('pricing_calculator_cpm_changed', { cpm: value })
+  }
+
+  const handleIgAddOnChange = (checked: boolean) => {
+    setIgAddOn(checked)
+    track('pricing_calculator_ig_toggle', { enabled: checked })
+  }
   const [debouncedPages, setDebouncedPages] = useState(defaultPages)
   const [debouncedReach, setDebouncedReach] = useState(defaultReach)
   const [debouncedCpm, setDebouncedCpm] = useState(defaultCPM)
@@ -111,7 +133,7 @@ export default function PricingCalculator({
               Theme Pages: {pages}
             </label>
             <div className="flex items-center space-x-4">
-              <Slider min={1} max={20} step={1} value={pages} onChange={setPages} className="flex-1" />
+              <Slider min={1} max={20} step={1} value={pages} onChange={handlePagesChange} className="flex-1" />
               <input
                 type="number"
                 min="1"
@@ -134,7 +156,7 @@ export default function PricingCalculator({
                 max={100_000_000}
                 step={100_000}
                 value={reach}
-                onChange={setReach}
+                onChange={handleReachChange}
                 className="flex-1"
               />
               <input
@@ -165,7 +187,7 @@ export default function PricingCalculator({
               CPM Rate: ${cpm.toFixed(2)} (varies by niche)
             </label>
             <div className="flex items-center space-x-4">
-              <Slider min={0.15} max={0.30} step={0.01} value={cpm} onChange={setCpm} className="flex-1" />
+              <Slider min={0.15} max={0.30} step={0.01} value={cpm} onChange={handleCpmChange} className="flex-1" />
               <input
                 type="number"
                 min="0.15"
@@ -186,7 +208,7 @@ export default function PricingCalculator({
               </label>
               <button
                 type="button"
-                onClick={() => setIgAddOn(!igAddOn)}
+                onClick={() => handleIgAddOnChange(!igAddOn)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-neutral-900 ${
                   igAddOn ? 'bg-accent' : 'bg-neutral-600'
                 }`}
